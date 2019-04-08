@@ -16,7 +16,16 @@ export class ItemService {
     return this.firestore.collection('entry').snapshotChanges();
   }
 
-  getCategories(){
-    return this.firestore.collection('categories').snapshotChanges();
+  getCategories(callBack){
+    return this.firestore.collection('categories').snapshotChanges()
+    .subscribe(actionArray =>{
+      const categories = actionArray.map(Categorie =>{
+        return {
+          id: Categorie.payload.doc.id,
+          ...Categorie.payload.doc.data() 
+        } as Categorie;
+      })
+      callBack(categories);
+    });
   }
 }

@@ -17,13 +17,10 @@ export class CategoriesListComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.service.getCategories().subscribe(actionArray =>{
-      this.listCat = actionArray.map(Categorie =>{
-        return {
-          id: Categorie.payload.doc.id,
-          ...Categorie.payload.doc.data() } as Categorie;
-      })
-    });
+    this.service.getCategories((data:any[])=>{
+      this.listCat = data;
+    })
+      
   }
 
   onEdit(cat: Categorie){

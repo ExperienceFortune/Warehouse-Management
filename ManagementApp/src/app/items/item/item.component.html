@@ -1,30 +1,67 @@
-<h1 class="display-4">Management App</h1>
-<form  #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id" class="form-control">
-  <div class="form-group">
-    <input type="date" name="date" #date="ngModel" [(ngModel)]="service.formData.date" class="form-control" placeholder="Date" required>
-    <div *ngIf="date.invalid && date.touched" class="validation-error">This field is required</div>
-    <input name="description" #description="ngModel" [(ngModel)]="service.formData.description" class="form-control" placeholder="Description">
-    <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="service.formData.quantity" class="form-control" placeholder="Quantity">
-    <input name="pilote" #pilote="ngModel" [(ngModel)]="service.formData.pilote" class="form-control" placeholder="Livre A">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <input type="number" name="laissezpasser" #laissezpasser="ngModel" [(ngModel)]="service.formData.laissezpasser" class="form-control" placeholder="# Laissez Passer">
-    </div>
-    <div class="form-group col-md-6">
-      <input name="status" #status="ngModel" [(ngModel)]="service.formData.status" class="form-control" placeholder="Status">
-    </div>
-    </div>
-    <input name="comment" #comment="ngModel" [(ngModel)]="service.formData.comment" class="form-control" placeholder="Comment">
-    
-    <div class="form-group">
-        <select class="form-control" >
-            <option *ngFor="let ite of list">{{ite.description}}</option>
-      </select>
-    </div>
+<div class="container">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+      New Entry
+  </button>
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Entry</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+    
+              <form  #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id" class="form-control">
+                <div class="form-group">
+                  <input type="date" name="date" #date="ngModel" [(ngModel)]="service.formData.date" class="form-control" placeholder="Date" required>
+                  <div *ngIf="date.invalid && date.touched" class="validation-error">This field is required</div>
+                  <div class="form-group">
+                      <select  class="form-control" >
+                        <option >Choose Category</option>
+                        <option *ngFor="let cat of categories" >{{cat.catName}}</option>
+                    </select>
+                  </div>
+                  <input name="description" #description="ngModel" [(ngModel)]="service.formData.description" class="form-control" placeholder="Description">
+                  <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="service.formData.quantity" class="form-control" placeholder="Quantity">
+                  <input name="pilote" #pilote="ngModel" [(ngModel)]="service.formData.pilote" class="form-control" placeholder="Livre A">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="number" name="laissezpasser" #laissezpasser="ngModel" [(ngModel)]="service.formData.laissezpasser" class="form-control" placeholder="# Laissez Passer">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input name="status" #status="ngModel" [(ngModel)]="service.formData.status" class="form-control" placeholder="Status">
+                  </div>
+                  </div>
+                  <input name="comment" #comment="ngModel" [(ngModel)]="service.formData.comment" class="form-control" placeholder="Comment">
+              
+                
+              
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-lg btn-block btn-info">SAVE</button>
+                </div>
+              </form> 
+
+
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-lg btn-block btn-info">SAVE</button>
-  </div>
-</form> 
+
+
+

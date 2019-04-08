@@ -3,6 +3,7 @@ import { ItemService } from 'src/app/shared/item.service';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { Categorie } from 'src/app/shared/item.model';
 
 
 @Component({
@@ -12,13 +13,17 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ItemComponent implements OnInit {
 
+  categories:any[]=[];
   constructor(public service : ItemService,
     private firestore: AngularFirestore,
     private toastr : ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
-
+    this.service.getCategories((data)=>{
+      this.categories = data
+    })
+    
 
   }
 
@@ -34,6 +39,7 @@ export class ItemComponent implements OnInit {
       laissezpasser:0,
       status:'',
       comment:'',
+      categorie:'',
     }
   }
 

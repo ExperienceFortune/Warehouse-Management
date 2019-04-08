@@ -7,6 +7,7 @@ export class Item {
     laissezpasser: number;
     status: string;
     comment: string;
+    categorie: string;
 
 }
 

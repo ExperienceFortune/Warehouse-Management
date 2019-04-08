@@ -7,6 +7,7 @@
     <th># Laissez Passer</th>
     <th>Status</th>
     <th>Commentaire</th>
+    <th>Categorie</th>
     <th></th>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
       <td (click)="onEdit(ite)">{{ite.laissezpasser}}</td>
       <td (click)="onEdit(ite)">{{ite.status}}</td>
       <td (click)="onEdit(ite)">{{ite.comment}}</td>
+      <td>{{ite.catName}}</td>
       <td><a class="btn text-danger" (click)="onDelete(ite.id)"><i class="fa fa-trash"></i></a></td>
     </tr>
   </tbody>
