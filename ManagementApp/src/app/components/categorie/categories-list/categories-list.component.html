@@ -1,0 +1,14 @@
+<table class="table table-hover">
+  <thead>
+    <th>Category name</th>
+    <th>Description</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cat of listCat">
+      <td (click)="onEdit(cat)">{{cat.catName}}</td>
+      <td (click)="onEdit(cat)">{{cat.catDescription}}</td>
+      <td><a class="btn text-danger" (click)="onDelete(cat.id)"><i class="fa fa-trash"></i></a></td>
+    </tr>
+  </tbody>
+</table>

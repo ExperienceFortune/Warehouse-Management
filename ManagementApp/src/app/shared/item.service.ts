@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Item } from './item.model';
+import { Item, Categorie } from './item.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -7,11 +7,16 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ItemService {
   formData: Item;
+  catData: Categorie;
 
   constructor(private firestore: AngularFirestore) { }
 
 
   getItems(){
     return this.firestore.collection('entry').snapshotChanges();
+  }
+
+  getCategories(){
+    return this.firestore.collection('categories').snapshotChanges();
   }
 }

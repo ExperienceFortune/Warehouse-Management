@@ -16,11 +16,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { RouterModule, Routes} from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { CategorieComponent } from './components/categorie/categorie.component';
+import { CategoriesComponent } from './components/categorie/categories/categories.component';
+import { CategoriesListComponent } from './components/categorie/categories-list/categories-list.component';
 
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
-  {path: 'items', component:ItemsComponent}
+  {path: 'items', component:ItemsComponent},
+  {path: 'categorie', component:CategorieComponent}
 ]
 
 @NgModule({
@@ -30,7 +34,10 @@ const appRoutes: Routes = [
     ItemComponent,
     ItemListComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    CategorieComponent,
+    CategoriesComponent,
+    CategoriesListComponent
   ],
   imports: [
     BrowserModule,

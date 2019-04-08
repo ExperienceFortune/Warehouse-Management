@@ -9,3 +9,9 @@ export class Item {
     comment: string;
 
 }
+
+export class Categorie {
+    id: string;
+    catName: string;
+    catDescription: string;
+}
